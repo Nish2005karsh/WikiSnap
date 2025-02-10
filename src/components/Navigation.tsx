@@ -98,10 +98,10 @@ const Navigation = () => {
           : "bg-gradient-to-b from-black/50 to-transparent"
       }`}>
         <div 
-          className="text-xl font-bold text-wikitok-red cursor-pointer"
+          className="text-2xl font-bold cursor-pointer bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] bg-clip-text text-transparent hover:scale-105 transition-transform"
           onClick={handleRandomArticle}
         >
-          WikTok
+          WikiTok
         </div>
         <div 
           className="flex items-center bg-black/20 backdrop-blur-sm rounded-full px-4 py-2 cursor-pointer"

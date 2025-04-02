@@ -1,7 +1,10 @@
+
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Progress } from "./ui/progress";
 import { getRandomArticles, getRelatedArticles } from "../services/wikipediaService";
+import { useTheme } from "./ThemeProvider";
+import FloatingActionButton from "./FloatingActionButton";
 
 const ArticleViewer = ({ articles: initialArticles, onArticleChange }) => {
   const [articles, setArticles] = useState(initialArticles);
@@ -10,8 +13,55 @@ const ArticleViewer = ({ articles: initialArticles, onArticleChange }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { fontSize, highContrast } = useTheme();
   const currentArticle = articles[currentIndex];
+
+  // Add scroll progress tracking
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      
+      const scrollTop = containerRef.current.scrollTop;
+      const scrollHeight = containerRef.current.scrollHeight;
+      const clientHeight = containerRef.current.clientHeight;
+      const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      
+      setScrollProgress(progress);
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+    }
+    
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [articles]);
+
+  // Add keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+        if (currentIndex > 0) {
+          containerRef.current?.children[currentIndex - 1].scrollIntoView({ behavior: "smooth" });
+        }
+      } else if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+        if (currentIndex < articles.length - 1) {
+          containerRef.current?.children[currentIndex + 1].scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex, articles.length]);
 
   const loadMoreArticles = useCallback(async () => {
     if (isLoading) return;
@@ -90,60 +140,83 @@ const ArticleViewer = ({ articles: initialArticles, onArticleChange }) => {
   }, [articles]);
 
   return (
-    <main 
-      ref={containerRef} 
-      className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory"
-    >
-      {articles.map((article, index) => (
+    <>
+      {/* Top progress bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-1">
         <div 
-          key={article.id} 
-          data-index={index}
-          className="article-section h-screen w-screen snap-start snap-always relative flex items-center justify-center"
-        >
-          <div className="absolute inset-0 w-screen h-screen">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{
-              opacity: isVisible && currentIndex === index ? 1 : 0,
-              y: isVisible && currentIndex === index ? 0 : 20,
-            }}
-            transition={{ duration: 0.5 }}
-            className="relative z-10 text-white p-8 max-w-3xl mx-auto"
+          className="h-full bg-wikitok-orange transition-all duration-300" 
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+      
+      <main 
+        ref={containerRef} 
+        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
+      >
+        {articles.map((article, index) => (
+          <div 
+            key={article.id} 
+            data-index={index}
+            className="article-section h-screen w-screen snap-start snap-always relative flex items-center justify-center"
           >
-            <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
-            <p className="text-lg leading-relaxed mb-12">
-              {currentIndex === index ? displayedText : article.content}
-            </p>
-            <div className="flex items-center space-x-2 text-sm text-gray-300">
-              <span>{article.readTime} min read</span>
-              <span>•</span>
-              <span>{article.views.toLocaleString()} views</span>
+            <div className="absolute inset-0 w-screen h-screen overflow-hidden">
+              <motion.div
+                initial={{ scale: 1.0 }}
+                whileInView={{ scale: 1.05 }}
+                transition={{ duration: 10, ease: "easeInOut" }}
+                className="w-full h-full"
+              >
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-5000"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
             </div>
-          </motion.div>
-          {currentIndex === index && (
-            <div className="absolute bottom-0 left-0 right-0 z-20">
-              <Progress 
-                value={progress} 
-                className="h-1 bg-black/20"
-                indicatorClassName="bg-red-500"
-              />
-            </div>
-          )}
-        </div>
-      ))}
-      {isLoading && (
-        <div className="h-screen w-screen flex items-center justify-center">
-          <div className="text-white">Loading more articles...</div>
-        </div>
-      )}
-    </main>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{
+                opacity: isVisible && currentIndex === index ? 1 : 0,
+                y: isVisible && currentIndex === index ? 0 : 20,
+              }}
+              transition={{ duration: 0.5 }}
+              className={`relative z-10 text-white p-8 max-w-3xl mx-auto ${highContrast ? 'high-contrast p-6 rounded-xl' : ''}`}
+              style={{ fontSize: `${fontSize}rem` }}
+            >
+              <h1 className="text-4xl font-bold mb-4 hover:text-wikitok-orange transition-colors">{article.title}</h1>
+              <p className="text-lg leading-relaxed mb-12">
+                {currentIndex === index ? displayedText : article.content}
+              </p>
+              <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <span>{article.readTime} min read</span>
+                <span>•</span>
+                <span>{article.views.toLocaleString()} views</span>
+              </div>
+            </motion.div>
+            {currentIndex === index && (
+              <div className="absolute bottom-0 left-0 right-0 z-20">
+                <Progress 
+                  value={progress} 
+                  className="h-1 bg-black/20"
+                  indicatorClassName="bg-wikitok-orange"
+                />
+              </div>
+            )}
+          </div>
+        ))}
+        {isLoading && (
+          <div className="h-screen w-screen flex items-center justify-center">
+            <div className="text-white animate-pulse">Loading more articles...</div>
+          </div>
+        )}
+      </main>
+      
+      {/* Floating Action Button and Text-to-Speech */}
+      <FloatingActionButton 
+        currentArticleText={currentArticle?.content || ""}
+      />
+    </>
   );
 };
 

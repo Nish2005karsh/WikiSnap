@@ -17,6 +17,7 @@ export default {
           red: "#FE2C55",
           blue: "#20D5EC",
           dark: "#121212",
+          light: "#F9FAFB",
           gray: "#F1F1F2",
           orange: "#F97316",
           skyblue: "#0EA5E9",
@@ -38,10 +39,25 @@ export default {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-light": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" },
+        },
+        parallax: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-20px)" },
+        },
       },
       animation: {
         "ken-burns": "ken-burns 20s ease infinite alternate",
         "fade-up": "fade-up 0.5s ease-out forwards",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-light": "pulse-light 4s ease-in-out infinite",
+        "parallax-slow": "parallax 1.5s ease-out",
       },
     },
   },

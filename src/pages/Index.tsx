@@ -51,7 +51,7 @@ const Index = () => {
   if (isLoading) {
     return (
       <div className="h-screen w-screen flex items-center justify-center bg-wikitok-dark">
-        <div className="text-white">Loading amazing articles...</div>
+        <div className="text-white animate-pulse">Loading amazing articles...</div>
       </div>
     );
   }

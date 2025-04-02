@@ -1,3 +1,4 @@
+
 import { Search, Compass } from "lucide-react";
 import {
   Command,
@@ -98,10 +99,10 @@ const Navigation = () => {
           : "bg-gradient-to-b from-black/50 to-transparent"
       }`}>
         <div 
-          className="text-2xl font-bold cursor-pointer bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] bg-clip-text text-transparent hover:scale-105 transition-transform"
+          className="text-2xl font-bold cursor-pointer bg-gradient-to-r from-[#F97316] to-[#0EA5E9] bg-clip-text text-transparent hover:scale-105 transition-transform"
           onClick={handleRandomArticle}
         >
-          WikiTok
+          WikiSnap
         </div>
         <div 
           className="flex items-center bg-black/20 backdrop-blur-sm rounded-full px-4 py-2 cursor-pointer"
@@ -115,7 +116,7 @@ const Navigation = () => {
         <div className="flex space-x-6">
           <Compass 
             className={`w-5 h-5 cursor-pointer transition-colors ${
-              location.pathname === "/discover" ? "text-wikitok-red" : "text-white"
+              location.pathname === "/discover" ? "text-[#F97316]" : "text-white"
             }`}
             onClick={handleDiscoverClick}
           />

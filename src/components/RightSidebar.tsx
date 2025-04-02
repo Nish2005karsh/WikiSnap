@@ -105,7 +105,7 @@ const RightSidebar = ({ article }) => {
     <div className="fixed right-4 bottom-20 flex flex-col items-center space-y-4 z-50">
       <div className="flex flex-col items-center">
         <button 
-          className={`sidebar-icon ${isBookmarked ? 'text-wikitok-red' : ''}`} 
+          className={`sidebar-icon ${isBookmarked ? 'text-wikitok-orange' : ''}`} 
           onClick={handleBookmark}
         >
           <Bookmark className="w-7 h-7" fill={isBookmarked ? 'currentColor' : 'none'} />

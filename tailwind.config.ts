@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -17,6 +18,8 @@ export default {
           blue: "#20D5EC",
           dark: "#121212",
           gray: "#F1F1F2",
+          orange: "#F97316",
+          skyblue: "#0EA5E9",
         },
         border: "hsl(var(--border))",
         background: "hsl(var(--background))",

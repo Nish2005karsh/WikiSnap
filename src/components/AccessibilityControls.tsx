@@ -57,7 +57,7 @@ const AccessibilityControls = () => {
         </Button>
         <DialogContent className="sm:max-w-md bg-slate-900 text-white">
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold">About WikiTok</DialogTitle>
+            <DialogTitle className="text-xl font-bold">About WikiSnap</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
             <p>A TikTok-style interface for exploring random Wikipedia articles.</p>

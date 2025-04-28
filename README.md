@@ -1,71 +1,24 @@
-# Welcome to your GPT Engineer project
+WikiSnap
 
-## Project info
+WikiSnap is a unique web application that combines the informative nature of Wikipedia with the engaging, user-friendly, and visually dynamic style of Snapchat. This project aims to provide users with an interactive, fun way to discover and explore articles, facts, and more in bite-sized, snap-worthy format
 
-**URL**: https://run.gptengineer.app/projects/201b8585-1009-4e6a-8111-16078ed87215/improve
+Features
+Snap-Worthy Content: Browse information in a visually engaging, quick-snippet format like Snapchat.
+Interactive Story Format: Explore Wikipedia-like articles in a swipe-through story format.
+User-Friendly: Easy to navigate and interact with, providing a fun experience to explore knowledge.
+Customizable Interface: Personalize the look and feel of your SnapTok experience.
+Search and Explore: Find specific topics and articles in a fun and dynamic way.
 
-## How can I edit this code?
+Steps to use the project
+1. Clone the repository
+2. Install the dependencies
+3. Run the project
+4. Enjoy the app
 
-There are several ways of editing your application.
+Repo=>https://github.com/Nish2005karsh/WikiSnap
+npm install to install the dependencies
+npm start to run the project
+It was made using AI app builder and chatgpt.
 
-**Use GPT Engineer**
-
-Simply visit the GPT Engineer project at [GPT Engineer](https://gptengineer.app/projects/201b8585-1009-4e6a-8111-16078ed87215/improve) and start prompting.
-
-Changes made via gptengineer.app will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in the GPT Engineer UI.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-All GPT Engineer projects can be deployed directly via the GPT Engineer app.
-
-Simply visit your project at [GPT Engineer](https://gptengineer.app/projects/201b8585-1009-4e6a-8111-16078ed87215/improve) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.gptengineer.app/tips-tricks/custom-domain/)
+Contributing
+Contributions are welcome! Please feel free to open an issue or submit a pull request.

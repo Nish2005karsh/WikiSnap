@@ -61,16 +61,23 @@ const AccessibilityControls = () => {
           </DialogHeader>
           <div className="space-y-4">
             <p>A TikTok-style interface for exploring random Wikipedia articles.</p>
-            <p>Made with ❤️ by @Aizkmusic</p>
-            <p>Check out the code on <a href="https://github.com" className="text-blue-400 hover:underline">GitHub</a></p>
+            <p>Made with ❤️ by Nishkarsh Pandey</p>
+            <p>Check out the code on <a href="https://github.com/Nish2005karsh/Wiki_Snap" className="text-blue-400 hover:underline">GitHub</a></p>
+
             <p>If you enjoy this project, you can <a href="#" className="text-blue-400 hover:underline">buy me a coffee! ☕</a></p>
+            <p className="text-center mt-4">
+  Support me with SOL:{" "}
+  <span className="text-blue-400 break-all">
+    Au96GNnnxgeqb9GA3saJKA86NdwgF5VBkYmd47VuJRau
+  </span>
+</p>
           </div>
           <DialogClose className="absolute right-4 top-4" />
         </DialogContent>
       </Dialog>
 
       {/* Liked Articles Button */}
-      <Sheet open={likesOpen} onOpenChange={setLikesOpen}>
+      {/* <Sheet open={likesOpen} onOpenChange={setLikesOpen}>
         <SheetTrigger asChild>
           <Button 
             className="glass-card w-12 h-12 p-0 rounded-full flex items-center justify-center hover-lift" 
@@ -112,11 +119,11 @@ const AccessibilityControls = () => {
                   </p>
                 </div>
               </div>
-              {/* More liked articles would be rendered here */}
+              
             </div>
           </div>
         </SheetContent>
-      </Sheet>
+      </Sheet> */}
 
       {/* Language Selector Button */}
       <Sheet open={languageOpen} onOpenChange={setLanguageOpen}>

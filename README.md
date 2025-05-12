@@ -51,5 +51,3 @@ Commit your work (git commit -m 'Add some feature')
 Push to the branch (git push origin feature-name)
 Open a Pull Request
 Feel free to open issues for suggestions or bugs!
-
-Link of the project:https://wikisnap.vercel.app/

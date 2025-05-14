@@ -62,7 +62,7 @@ const AccessibilityControls = () => {
           <div className="space-y-4">
             <p>A TikTok-style interface for exploring random Wikipedia articles.</p>
             <p>Made with ❤️ by Nishkarsh Pandey</p>
-            <p>Check out the code on <a href="https://github.com/Nish2005karsh/Wiki_Snap" className="text-blue-400 hover:underline">GitHub</a></p>
+            <p>Check out the code on <a href="https://github.com/Nish2005karsh/WikiSnap" className="text-blue-400 hover:underline">GitHub</a></p>
 
             <p>If you enjoy this project, you can <a href="#" className="text-blue-400 hover:underline">buy me a coffee! ☕</a></p>
             <p className="text-center mt-4">
@@ -126,7 +126,7 @@ const AccessibilityControls = () => {
       </Sheet> */}
 
       {/* Language Selector Button */}
-      <Sheet open={languageOpen} onOpenChange={setLanguageOpen}>
+      {/* <Sheet open={languageOpen} onOpenChange={setLanguageOpen}>
         <SheetTrigger asChild>
           <Button 
             className="glass-card w-12 h-12 p-0 rounded-full flex items-center justify-center hover-lift" 
@@ -163,7 +163,7 @@ const AccessibilityControls = () => {
             </div>
           </div>
         </SheetContent>
-      </Sheet>
+      </Sheet> */}
 
       {/* Accessibility Panel */}
       {isOpen && (

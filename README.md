@@ -1,48 +1,86 @@
-📸 WikiSnap
-WikiSnap is a unique web application that fuses the informative depth of Wikipedia with the engaging, bite-sized, and swipeable experience of Snapchat. Discover knowledge in a fun, interactive, and visually rich format designed to make learning feel effortless.
 
-🚀 Features
-📚 Snap-Worthy Content
-Browse quick, visually appealing knowledge snippets designed like snaps.
+![Logo](screenshots/WikiSnap.png)
+# Project Title
+📚 **WikiSnap**
+WikiSnap is a unique mashup of Wikipedia and Snapchat/TikTok — designed to bring quick, engaging, and bite-sized summaries of Wikipedia articles in a visually appealing, scrollable format.
+Think: Wikipedia knowledge meets the speed and style of Snapchat/TikTok.
 
-🎞️ Interactive Story Format
-Explore content through a swipeable story interface, similar to social media stories.
+## Features
+- 📚 Snap-Worthy Content: Quickly view summaries of Wikipedia articles.
+- 🎞️ Interactive Story Format: Experience content like a scrolling story.
+- ✨ User-Friendly Design: Intuitive UI for easy exploration.
+- 🎨 Customizable Interface: Personalize your experience with themes.
+- 🔍 Smart Search & Explore: Find topics and dive into articles.
+-📄 Auto-fetch summaries using the Wikipedia API.
+-🧠 Minimal distraction, swipe/tap interface like TikTok or Snapchat.
+-📱 Mobile-friendly and responsive design.
 
-✨ User-Friendly Design
-A smooth, intuitive UI that makes exploring topics enjoyable and accessible.
+## 🔧 Tech Stack
+- **Frontend**:  TypeScript,Tailwind CSS
+- **API**: Wikipedia API
+- **Deployment**: Vercel
+- **Hosting**: Vercel
+- **LowCode**: Lovable
 
-🎨 Customizable Interface
-Personalize your experience with themes and interface settings.
+## 🛠️ Installation
 
-🔍 Smart Search & Explore
-Search for topics and dive into dynamic articles and stories with ease.
-
-🛠️ Getting Started
-Follow the steps below to set up and run WikiSnap on your local machine.
-
-1. Clone the Repository
-```bash
+1. Clone the repository
+```
 git clone https://github.com/Nish2005karsh/WikiSnap.git
 cd WikiSnap
 ```
-2. Install Dependencies
+2. Install dependencies
 ```bash
 npm install
 ```
-3. Run the Project
+3. Run the project
 ```bash
 npm start
 ```
-4. Enjoy the App 🎉
-Start discovering Wikipedia-style content in a Snap-like interface.
+4. Enjoy the app 🎉
 
-🤖 Built With
-AI App Builders(Basic framework made using Lovable)
-Typescript
-npm ecosystem
+## 📸Screenshots
+![App Screenshot](screenshots/screenshot1.png)
+![App Screenshot](screenshots/screenshot2.png)
+![App Screenshot](screenshots/screenshot3.png)
+![App Screenshot](screenshots/screenshot4.png)
 
-🤝 Contributing
-We welcome contributions from the community!
+## How to Use
+1. Enter a topic or search query.
+2. Tap the "Search" button.
+3. Browse through the results.
+
+## 🧠 How It Works
+User enters a keyword/topic.
+WikiSnap fetches the summary from Wikipedia using its API.
+The summary is styled and displayed in a "snap" — fast and readable.
+Swipe/scroll to discover more!
+
+## 🚀 Badges
+![License](https://img.shields.io/github/license/Nish2005karsh/WikiSnap)
+![Repo Size](https://img.shields.io/github/repo-size/Nish2005karsh/WikiSnap)
+![Languages](https://img.shields.io/github/languages/top/Nish2005karsh/WikiSnap)
+![Last Commit](https://img.shields.io/github/last-commit/Nish2005karsh/WikiSnap)
+![Issues](https://img.shields.io/github/issues/Nish2005karsh/WikiSnap)
+[![Live Demo](https://img.shields.io/badge/Demo-Click%20Here-blue)](https://wiki-snap.vercel.app/)
+
+## ✅ Future Ideas
+Text-to-speech.
+Trending topic highlights.
+Dark mode.
+Save/share snaps.
+
+## 📄 License
+This project is licensed under the MIT License.
+
+
+## Contact
+Contact
+Created by Nishkarsh - feel free to reach out via GitHub issues or email for questions, suggestions, or feedback
+
+## Contributing
+Contributing
+Feel free to fork the repository and submit pull requests for any improvements or additional features. If you encounter bugs or have suggestions, open an issue and we’ll look into it!
 If you'd like to improve WikiSnap:
 Fork the repository
 Create a new branch (git checkout -b feature-name)
@@ -51,3 +89,6 @@ Commit your work (git commit -m 'Add some feature')
 Push to the branch (git push origin feature-name)
 Open a Pull Request
 Feel free to open issues for suggestions or bugs!
+
+## ⭐ Support the Project
+If you find this tool helpful, please give it a star! It helps the project gain visibility and shows your support.

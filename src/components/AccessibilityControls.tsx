@@ -64,7 +64,7 @@ const AccessibilityControls = () => {
             <p>Made with ❤️ by Nishkarsh Pandey</p>
             <p>Check out the code on <a href="https://github.com/Nish2005karsh/WikiSnap" className="text-blue-400 hover:underline">GitHub</a></p>
 
-            <p>If you enjoy this project, you can <a href="#" className="text-blue-400 hover:underline">buy me a coffee! ☕</a></p>
+            {/* <p>If you enjoy this project, you can <a href="#" className="text-blue-400 hover:underline">buy me a coffee! ☕</a></p> */}
             <p className="text-center mt-4">
   Support me with SOL:{" "}
   <span className="text-blue-400 break-all">

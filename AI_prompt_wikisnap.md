@@ -58,3 +58,5 @@ Status Bar:
 - Reading time displayed like video duration
 - Edit count shown like share count
 - Article quality rating displayed as stars
+
+<!-- Only some part of the frontend is created using this method -->

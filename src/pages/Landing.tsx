@@ -112,13 +112,25 @@ export default function LandingPage() {
                             href="#features"
                             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                         >
-                            Explore
+                            Features
                         </a>
                         <a
-                            href="#testimonials"
+                            href="#use-cases"
                             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                         >
-                            GitHub
+                            Use Cases
+                        </a>
+                        <a
+                            href="#tech-stack"
+                            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Tech Stack
+                        </a>
+                        <a
+                            href="#roadmap"
+                            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Roadmap
                         </a>
                     </nav>
                     <div className="hidden md:flex gap-4 items-center">
@@ -157,10 +169,16 @@ export default function LandingPage() {
                     >
                         <div className="container py-4 flex flex-col gap-4">
                             <a href="#features" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                                Explore
+                                Features
                             </a>
-                            <a href="#testimonials" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                                GitHub
+                            <a href="#use-cases" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                                Use Cases
+                            </a>
+                            <a href="#tech-stack" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                                Tech Stack
+                            </a>
+                            <a href="#roadmap" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                                Roadmap
                             </a>
                             <div className="flex gap-2 mt-4">
                                 <Link to="/sign-in" className="flex-1">
@@ -207,9 +225,11 @@ export default function LandingPage() {
                                         <ArrowRight className="ml-2 size-4" />
                                     </Button>
                                 </Link>
-                                <Button size="lg" variant="outline" className="rounded-full h-12 px-8 text-base bg-transparent">
-                                    View on GitHub
-                                </Button>
+                                <a href="https://github.com/Nish2005karsh/WikiSnap" target="_blank" rel="noopener noreferrer">
+                                    <Button size="lg" variant="outline" className="rounded-full h-12 px-8 text-base bg-transparent">
+                                        View on GitHub
+                                    </Button>
+                                </a>
                             </div>
                             <div className="flex items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
                                 <div className="flex items-center gap-1">
@@ -235,10 +255,11 @@ export default function LandingPage() {
                         >
                             <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
                                 <img
-                                    src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center"
+                                    src="/screenshot/page.png"
                                     alt="WikiSnap app interface"
-                                    className="w-full h-auto"
+                                    className="w-full h-auto rounded-xl"
                                 />
+
                                 <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
                             </div>
                             <div className="absolute -bottom-6 -right-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl opacity-70"></div>
@@ -362,8 +383,8 @@ export default function LandingPage() {
                     </div>
                 </section>
 
-                {/* Testimonials Section - Now "Use Cases" */}
-                <section id="testimonials" className="w-full py-20 md:py-32">
+                {/* Use Cases Section */}
+                <section id="use-cases" className="w-full py-20 md:py-32">
                     <div className="container px-4 md:px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -427,7 +448,7 @@ export default function LandingPage() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: i * 0.05 }}
                                 >
-                                    <Card className="h-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-md">
+                                    <Card className="h-full overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50 hover:bg-muted/20">
                                         <CardContent className="p-6 flex flex-col h-full">
                                             <div className="flex mb-4">
                                                 {Array(use.rating)
@@ -454,8 +475,8 @@ export default function LandingPage() {
                     </div>
                 </section>
 
-                {/* Tech Stack Section - Replaces Pricing */}
-                <section id="pricing" className="w-full py-20 md:py-32 bg-muted/30 relative overflow-hidden">
+                {/* Tech Stack Section */}
+                <section id="tech-stack" className="w-full py-20 md:py-32 bg-muted/30 relative overflow-hidden">
                     <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_40%,transparent_100%)]"></div>
 
                     <div className="container px-4 md:px-6 relative">
@@ -510,7 +531,7 @@ export default function LandingPage() {
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.5, delay: i * 0.1 }}
                                     >
-                                        <Card className="relative overflow-hidden h-full border-border/40 shadow-md bg-gradient-to-b from-background to-muted/10 backdrop-blur">
+                                        <Card className="relative overflow-hidden h-full border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50 hover:bg-muted/20">
                                             <CardContent className="p-6 flex flex-col h-full">
                                                 <h3 className="text-2xl font-bold">{tech.name}</h3>
                                                 <p className="text-muted-foreground mt-2">{tech.description}</p>
@@ -523,8 +544,8 @@ export default function LandingPage() {
                     </div>
                 </section>
 
-                {/* Roadmap Section - Replaces FAQ */}
-                <section id="faq" className="w-full py-20 md:py-32">
+                {/* Roadmap Section */}
+                <section id="roadmap" className="w-full py-20 md:py-32">
                     <div className="container px-4 md:px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -544,20 +565,20 @@ export default function LandingPage() {
                             <Accordion type="single" collapsible className="w-full">
                                 {[
                                     {
-                                        question: "⬜ User Authentication",
-                                        answer: "Save your progress, personalized feeds, and sync across devices with user accounts.",
+                                        question: "🔐 Secure User Accounts",
+                                        answer: "Create an account to save progress, sync across devices, and access a personalized learning experience.",
                                     },
                                     {
-                                        question: "⬜ Personalized Feeds",
-                                        answer: "Get content recommendations based on your learning history and interests.",
+                                        question: "🎯 Smart Personalized Feed",
+                                        answer: "See content tailored to your interests based on what you read and explore the most.",
                                     },
                                     {
-                                        question: "⬜ Save & Bookmark Articles",
-                                        answer: "Build your personal library of favorite articles for easy access and offline reading.",
+                                        question: "🔖 Save & Bookmark Topics",
+                                        answer: "Bookmark articles and build your own knowledge library for quick access anytime.",
                                     },
                                     {
-                                        question: "⬜ Topic Recommendations",
-                                        answer: "Discover new topics based on your learning patterns and interests.",
+                                        question: "🧭 Intelligent Topic Discovery",
+                                        answer: "Automatically discover new topics and ideas aligned with your learning behavior.",
                                     },
                                 ].map((item, i) => (
                                     <motion.div
@@ -605,13 +626,15 @@ export default function LandingPage() {
                                         <ArrowRight className="ml-2 size-4" />
                                     </Button>
                                 </Link>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
-                                >
-                                    View on GitHub
-                                </Button>
+                                <a href="https://github.com/Nish2005karsh/WikiSnap" target="_blank" rel="noopener noreferrer">
+                                    <Button
+                                        size="lg"
+                                        variant="outline"
+                                        className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
+                                    >
+                                        View on GitHub
+                                    </Button>
+                                </a>
                             </div>
                         </motion.div>
                     </div>
@@ -631,32 +654,7 @@ export default function LandingPage() {
                                 Transform Wikipedia articles into a fast, scrollable feed. Learn anything, one swipe at a time.
                             </p>
                             <div className="flex gap-4">
-                                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                    <Instagram className="size-5" />
-                                    <span className="sr-only">Instagram</span>
-                                </a>
-                                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                    <Linkedin className="size-5" />
-                                    <span className="sr-only">LinkedIn</span>
-                                </a>
-                                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="size-5"
-                                    >
-                                        <path d="M4 4l11.733 16M4 20h16M20 4h.01" />
-                                    </svg>
-                                    <span className="sr-only">X</span>
-                                </a>
-                                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                                <a href="https://github.com/Nish2005karsh/WikiSnap" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                                     <Github className="size-5" />
                                     <span className="sr-only">GitHub</span>
                                 </a>
@@ -667,72 +665,22 @@ export default function LandingPage() {
                             <ul className="space-y-2 text-sm">
                                 <li>
                                     <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Explore
+                                        Features
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        GitHub
+                                    <a href="#use-cases" className="text-muted-foreground hover:text-foreground transition-colors">
+                                        Use Cases
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        API
+                                    <a href="#tech-stack" className="text-muted-foreground hover:text-foreground transition-colors">
+                                        Tech Stack
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                                    <a href="#roadmap" className="text-muted-foreground hover:text-foreground transition-colors">
                                         Roadmap
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="space-y-4">
-                            <h4 className="text-sm font-bold">Resources</h4>
-                            <ul className="space-y-2 text-sm">
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Documentation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Guides
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Support
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="space-y-4">
-                            <h4 className="text-sm font-bold">Community</h4>
-                            <ul className="space-y-2 text-sm">
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Contribute
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Issues
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        Discussions
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                                        License
                                     </a>
                                 </li>
                             </ul>
@@ -742,17 +690,6 @@ export default function LandingPage() {
                         <p className="text-xs text-muted-foreground">
                             &copy; {new Date().getFullYear()} WikiSnap. All rights reserved.
                         </p>
-                        <div className="flex gap-4">
-                            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                                Privacy Policy
-                            </a>
-                            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                                Terms of Service
-                            </a>
-                            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                                Cookie Policy
-                            </a>
-                        </div>
                     </div>
                 </div>
             </footer>

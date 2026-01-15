@@ -14,6 +14,8 @@ import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { searchArticles, getRandomArticles } from "../services/wikipediaService";
 import { useQuery } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/clerk-react";
+
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +24,15 @@ const Navigation = () => {
   const location = useLocation();
   const { toast } = useToast();
   const [searchParams] = useSearchParams();
+  const { isSignedIn } = useUser();
+
+  // Hide navigation on landing page for unauthenticated users
+  // Also hide on auth pages (sign-in, sign-up) to avoid clutter
+  if ((location.pathname === "/" && !isSignedIn) ||
+    location.pathname.startsWith("/sign-in") ||
+    location.pathname.startsWith("/sign-up")) {
+    return null;
+  }
 
   useEffect(() => {
     const query = searchParams.get("q");
@@ -47,12 +58,12 @@ const Navigation = () => {
       description: `Loading articles about ${title}...`,
       duration: 2000,
     });
-    
+
     const reorderedResults = [
       selectedArticle,
       ...(searchResults || []).filter(article => article.id !== selectedArticle.id)
     ];
-    
+
     navigate(`/?q=${encodeURIComponent(title)}`, {
       state: { reorderedResults }
     });
@@ -93,18 +104,17 @@ const Navigation = () => {
 
   return (
     <>
-      <div className={`fixed top-0 left-0 right-0 h-14 z-50 flex items-center justify-between px-4 ${
-        isDiscoverPage 
-          ? "bg-black" 
-          : "bg-gradient-to-b from-black/50 to-transparent"
-      }`}>
-        <div 
+      <div className={`fixed top-0 left-0 right-0 h-14 z-50 flex items-center justify-between px-4 ${isDiscoverPage
+        ? "bg-black"
+        : "bg-gradient-to-b from-black/50 to-transparent"
+        }`}>
+        <div
           className="text-2xl font-bold cursor-pointer bg-gradient-to-r from-[#F97316] to-[#0EA5E9] bg-clip-text text-transparent hover:scale-105 transition-transform"
           onClick={handleRandomArticle}
         >
           WikiSnap
         </div>
-        <div 
+        <div
           className="flex items-center bg-black/20 backdrop-blur-sm rounded-full px-4 py-2 cursor-pointer"
           onClick={() => setOpen(true)}
         >
@@ -113,23 +123,32 @@ const Navigation = () => {
             {searchValue || "Search articles"}
           </span>
         </div>
-        <div className="flex space-x-6">
-          <Compass 
-            className={`w-5 h-5 cursor-pointer transition-colors ${
-              location.pathname === "/discover" ? "text-[#F97316]" : "text-white"
-            }`}
+        <div className="flex space-x-6 items-center">
+          <Compass
+            className={`w-5 h-5 cursor-pointer transition-colors ${location.pathname === "/discover" ? "text-[#F97316]" : "text-white"
+              }`}
             onClick={handleDiscoverClick}
           />
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="text-white hover:text-[#F97316] transition-colors font-medium">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
         </div>
-      </div>
+      </div >
 
-      <CommandDialog 
-        open={open} 
+      <CommandDialog
+        open={open}
         onOpenChange={handleOpenChange}
       >
         <Command shouldFilter={false}>
-          <CommandInput 
-            placeholder="Search articles..." 
+          <CommandInput
+            placeholder="Search articles..."
             value={searchValue}
             onValueChange={setSearchValue}
             className="border-none focus:ring-0"
@@ -157,8 +176,8 @@ const Navigation = () => {
                   >
                     <div className="flex items-center w-full gap-3">
                       {result.image && (
-                        <img 
-                          src={result.image} 
+                        <img
+                          src={result.image}
                           alt={result.title}
                           className="w-16 h-16 object-cover rounded-md flex-shrink-0"
                         />

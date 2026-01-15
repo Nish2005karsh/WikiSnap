@@ -402,9 +402,21 @@ export default function LandingPage() {
                                     rating: 5,
                                 },
                                 {
-                                    title: "👨‍💻 Developers",
+                                    title: "👨💻 Developers",
                                     role: "Tech learning",
                                     description: "Stay updated with technology concepts and programming fundamentals.",
+                                    rating: 5,
+                                },
+                                {
+                                    title: "📰 Researchers",
+                                    role: "Quick reference",
+                                    description: "Get concise overviews of complex topics before diving into detailed research.",
+                                    rating: 5,
+                                },
+                                {
+                                    title: "⏱️ Busy Professionals",
+                                    role: "Time-efficient learning",
+                                    description: "Learn something new in minutes without long articles or distractions.",
                                     rating: 5,
                                 },
                             ].map((use, i) => (
